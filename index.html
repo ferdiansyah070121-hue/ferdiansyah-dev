@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Learning Pendidikan Pancasila</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Pancasila<span>Edu</span></h1>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showHome()">Beranda</a></li>
+                <li><a href="#materi">Materi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h2>Mata Kuliah: Pendidikan Pancasila</h2>
+            <p>Media pembelajaran digital untuk memahami nilai-nilai luhur bangsa Indonesia.</p>
+        </div>
+    </header>
+
+    <main class="container content-area">
+        <aside class="sidebar">
+            <h3>Daftar Pertemuan</h3>
+            <ul id="meeting-list">
+                </ul>
+        </aside>
+
+        <section class="main-content" id="display-area">
+            <div id="welcome-msg">
+                <h2>Selamat Datang</h2>
+                <p>Silakan pilih materi pertemuan di samping untuk memulai pembelajaran.</p>
+                
+            </div>
+            <div id="materi-container" class="hidden">
+                <h2 id="materi-title"> Judul Materi </h2>
+                <hr>
+                <div id="materi-body"> Isi materi... </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Muhamad Ferdiansyah-Teknik Informatika UAS - Pendidikan Pancasila</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
