@@ -1,0 +1,1059 @@
+<!doctype html>
+<html lang="id" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Materi Pendidikan Pancasila</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100%;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        nav {
+            background: blue;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            background: #667eea;
+            color: blue;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-btn.active {
+            background: #764ba2;
+            box-shadow: 0 4px 8px rgba(118, 75, 162, 0.3);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem 2rem;
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .course-card {
+            background: blue;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .course-card h2 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .course-card h3 {
+            color: #764ba2;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .course-card ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .course-card p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .meeting-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .meeting-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .meeting-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+
+        .meeting-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: blue;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .meeting-card h3 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .meeting-card p {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .emoji {
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .course-card {
+                padding: 1.5rem;
+            }
+
+            .course-card h2 {
+                font-size: 1.5rem;
+            }
+
+            .meeting-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-btn {
+                font-size: 0.85rem;
+                padding: 0.6rem 1rem;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div class="container">
+   <header>
+    <h1 id="courseTitle">📚 Pendidikan Pancasila</h1>
+    <p id="courseSubtitle">Memahami nilai-nilai Pancasila dalam kehidupan berbangsa dan bernegara</p>
+   </header>
+   <nav>
+    <div class="nav-container"><button class="nav-btn active" onclick="showSection('beranda')">🏠 Beranda</button> <button class="nav-btn" onclick="showSection('materi')">📖 Daftar Materi</button> <button class="nav-btn" onclick="showSection('tentang')">ℹ️ Tentang</button>
+    </div>
+   </nav>
+   <main>
+    <section id="beranda" class="content-section active">
+     <div class="course-card">
+      <h2><span class="emoji">🎯</span> Selamat Datang</h2>
+      <p>Website ini menyajikan materi perkuliahan Pendidikan Pancasila yang disusun secara sistematis untuk membantu mahasiswa memahami nilai-nilai luhur bangsa Indonesia.</p>
+      <div class="highlight-box"><strong>💡 Tujuan Pembelajaran:</strong>
+       <ul>
+        <li>Memahami sejarah dan filosofi Pancasila</li>
+        <li>Mengimplementasikan nilai-nilai Pancasila dalam kehidupan</li>
+        <li>Mengembangkan sikap nasionalisme dan cinta tanah air</li>
+        <li>Memahami hak dan kewajiban sebagai warga negara</li>
+       </ul>
+      </div>
+      <h3>📋 Capaian Pembelajaran</h3>
+      <p>Setelah menyelesaikan mata kuliah ini, mahasiswa diharapkan mampu:</p>
+      <ol>
+       <li>Menjelaskan sejarah dan kedudukan Pancasila sebagai dasar negara</li>
+       <li>Menganalisis implementasi nilai-nilai Pancasila dalam berbagai aspek kehidupan</li>
+       <li>Menerapkan etika Pancasila dalam kehidupan bermasyarakat</li>
+       <li>Memahami konstitusi dan sistem pemerintahan Indonesia</li>
+      </ol>
+     </div>
+    </section>
+    <section id="materi" class="content-section">
+     <div class="course-card">
+      <h2><span class="emoji">📚</span> Daftar Materi Perkuliahan</h2>
+      <p>Klik pada setiap pertemuan untuk mempelajari materi secara detail</p>
+     </div>
+     <div class="meeting-grid">
+      <div class="meeting-card" onclick="showMeeting(1)">
+       <div class="meeting-number">
+        1
+       </div>
+       <h3>Pengantar Pendidikan Pancasila</h3>
+       <p>Konsep dasar, tujuan, dan ruang lingkup mata kuliah</p>
+      </div>
+      <div class="meeting-card" onclick="showMeeting(2)">
+       <div class="meeting-number">
+        2
+       </div>
+       <h3>Sejarah Lahirnya Pancasila</h3>
+       <p>Proses perumusan dan penetapan Pancasila sebagai dasar negara</p>
+      </div>
+      <div class="meeting-card" onclick="showMeeting(3)">
+       <div class="meeting-number">
+        3
+       </div>
+       <h3>Pancasila sebagai Sistem Filsafat</h3>
+       <p>Kajian filosofis dan makna mendalam setiap sila</p>
+      </div>
+      <div class="meeting-card" onclick="showMeeting(4)">
+       <div class="meeting-number">
+        4
+       </div>
+       <h3>Pancasila sebagai Ideologi Negara</h3>
+       <p>Kedudukan dan fungsi Pancasila dalam kehidupan berbangsa</p>
+      </div>
+      <div class="meeting-card" onclick="showMeeting(5)">
+       <div class="meeting-number">
+        5
+       </div>
+       <h3>Nilai-nilai Pancasila Sila Pertama</h3>
+       <p>Ketuhanan Yang Maha Esa dalam kehidupan beragama</p>
+      </div>
+      <div class="meeting-card" onclick="showMeeting(6)">
+       <div class="meeting-number">
+        6
+       </div>
+       <h3>Nilai-nilai Pancasila Sila Kedua</h3>
+       <p>Kemanusiaan yang adil dan beradab</p>
+      </div>
+      <div class="meeting-card" onclick="showMeeting(7)">
+       <div class="meeting-number">
+        7
+       </div>
+       <h3>Nilai-nilai Pancasila Sila Ketiga</h3>
+       <p>Persatuan Indonesia dan nasionalisme</p>
+      </div>
+      <div class="meeting-card" onclick="showMeeting(8)">
+       <div class="meeting-number">
+        8
+       </div>
+       <h3>Ujian Tengah Semester</h3>
+       <p>Evaluasi pembelajaran materi pertemuan 1-7</p>
+      </div>
+      <div class="meeting-card" onclick="showMeeting(9)">
+       <div class="meeting-number">
+        9
+       </div>
+       <h3>Nilai-nilai Pancasila Sila Keempat</h3>
+       <p>Kerakyatan yang dipimpin oleh hikmat kebijaksanaan</p>
+      </div>
+      <div class="meeting-card" onclick="showMeeting(10)">
+       <div class="meeting-number">
+        10
+       </div>
+       <h3>Nilai-nilai Pancasila Sila Kelima</h3>
+       <p>Keadilan sosial bagi seluruh rakyat Indonesia</p>
+      </div>
+      <div class="meeting-card" onclick="showMeeting(11)">
+       <div class="meeting-number">
+        11
+       </div>
+       <h3>Pancasila dalam Konteks NKRI</h3>
+       <p>Implementasi Pancasila dalam sistem pemerintahan</p>
+      </div>
+      <div class="meeting-card" onclick="showMeeting(12)">
+       <div class="meeting-number">
+        12
+       </div>
+       <h3>Pancasila dan Konstitusi</h3>
+       <p>Hubungan Pancasila dengan UUD 1945</p>
+      </div>
+      <div class="meeting-card" onclick="showMeeting(13)">
+       <div class="meeting-number">
+        13
+       </div>
+       <h3>Hak dan Kewajiban Warga Negara</h3>
+       <p>Hak asasi manusia dan tanggung jawab sebagai warga negara</p>
+      </div>
+      <div class="meeting-card" onclick="showMeeting(14)">
+       <div class="meeting-number">
+        14
+       </div>
+       <h3>Pancasila di Era Digital</h3>
+       <p>Tantangan dan implementasi Pancasila di era modern</p>
+      </div>
+     </div>
+     <div id="meetingDetail" style="display: none; margin-top: 2rem;"></div>
+    </section>
+    <section id="tentang" class="content-section">
+     <div class="course-card">
+      <h2><span class="emoji">ℹ️</span> Tentang Mata Kuliah</h2>
+      <h3>📖 Deskripsi</h3>
+      <p>Mata kuliah Pendidikan Pancasila merupakan mata kuliah wajib yang bertujuan untuk membentuk karakter mahasiswa sebagai warga negara yang memahami, menghayati, dan mengamalkan nilai-nilai Pancasila dalam kehidupan sehari-hari.</p>
+      <h3>👨‍🏫 Informasi Dosen</h3>
+      <p><strong>Dosen Pengampu:</strong> <span id="lecturerName">Dr. Ahmad Sutanto, M.Pd</span></p>
+      <p><strong>Institusi:</strong> <span id="institutionName">Universitas Indonesia</span></p>
+      <h3>⏰ Jadwal Kuliah</h3>
+      <p><strong>Hari:</strong> Senin</p>
+      <p><strong>Waktu:</strong> 08.00 - 10.00 WIB</p>
+      <p><strong>Ruang:</strong> A-301</p>
+      <h3>📝 Sistem Penilaian</h3>
+      <ul>
+       <li>Kehadiran: 10%</li>
+       <li>Tugas: 20%</li>
+       <li>UTS: 30%</li>
+       <li>UAS: 40%</li>
+      </ul>
+      </div>
+     </div>
+    </section>
+   </main>
+   <footer>
+    <p><strong id="footerInstitution">Universitas Indonesia</strong></p>
+    <p>© 2025 Muhamad Ferdiansyah (231011401024)</p>
+    <p>Website Materi Perkuliahan</p>
+   </footer>
+  </div>
+  <script>
+        const defaultConfig = {
+            course_title: "📚 Pendidikan Pancasila",
+            course_subtitle: "Memahami nilai-nilai Pancasila dalam kehidupan berbangsa dan bernegara",
+            institution_name: "Universitas Indonesia",
+            lecturer_name: "Dr. Ahmad Sutanto, M.Pd"
+        };
+
+        const meetingContents = {
+            1: {
+                title: "Pertemuan 1: Pengantar Pendidikan Pancasila",
+                content: `
+                    <h3>🎯 Tujuan Pembelajaran</h3>
+                    <p>Mahasiswa mampu memahami konsep dasar, tujuan, dan ruang lingkup mata kuliah Pendidikan Pancasila.</p>
+                    
+                    <h3>📝 Materi Pokok</h3>
+                    <ul>
+                        <li><strong>Pengertian Pendidikan Pancasila</strong><br>
+                        Pendidikan Pancasila adalah usaha sadar dan terencana untuk mewujudkan proses pembelajaran agar mahasiswa aktif mengembangkan potensi dirinya untuk memiliki kekuatan spiritual keagamaan, pengendalian diri, kepribadian, kecerdasan, akhlak mulia, serta keterampilan yang diperlukan dirinya, masyarakat, bangsa dan negara berdasarkan nilai-nilai Pancasila.</li>
+                        
+                        <li><strong>Tujuan Pendidikan Pancasila</strong><br>
+                        Membentuk mahasiswa menjadi manusia yang memiliki rasa kebangsaan dan cinta tanah air, demokratis yang berkeadaban, menjadi warga negara yang memiliki daya saing, berdisiplin, dan berpartisipasi aktif dalam membangun kehidupan yang damai berdasarkan sistem nilai Pancasila.</li>
+                        
+                        <li><strong>Urgensi Pendidikan Pancasila</strong><br>
+                        Di era globalisasi, Pendidikan Pancasila sangat penting untuk menjaga jati diri bangsa, mempertahankan ideologi negara, dan membentuk karakter generasi muda yang berakhlak mulia.</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>💡 Poin Penting:</strong>
+                        <p>Pancasila bukan hanya sebagai dasar negara, tetapi juga sebagai pandangan hidup, ideologi, dan kepribadian bangsa Indonesia yang harus dipahami dan diamalkan oleh setiap warga negara.</p>
+                    </div>
+
+                    <h3>📚 Tugas</h3>
+                    <p>Buat esai singkat (500 kata) tentang pentingnya mempelajari Pendidikan Pancasila di perguruan tinggi.</p>
+                `
+            },
+            2: {
+                title: "Pertemuan 2: Sejarah Lahirnya Pancasila",
+                content: `
+                    <h3>🎯 Tujuan Pembelajaran</h3>
+                    <p>Mahasiswa mampu menjelaskan proses perumusan dan penetapan Pancasila sebagai dasar negara Indonesia.</p>
+                    
+                    <h3>📝 Materi Pokok</h3>
+                    <ul>
+                        <li><strong>Latar Belakang Perumusan Pancasila</strong><br>
+                        Menjelang kemerdekaan, para pendiri bangsa menyadari pentingnya memiliki dasar negara yang kokoh. BPUPKI dibentuk pada 29 April 1945 untuk mempersiapkan kemerdekaan Indonesia.</li>
+                        
+                        <li><strong>Sidang BPUPKI</strong><br>
+                        - Sidang I (29 Mei - 1 Juni 1945): Tiga tokoh menyampaikan pidato tentang dasar negara<br>
+                        - Mr. Muhammad Yamin (29 Mei 1945)<br>
+                        - Prof. Dr. Soepomo (31 Mei 1945)<br>
+                        - Ir. Soekarno (1 Juni 1945) yang menyampaikan konsep Pancasila</li>
+                        
+                        <li><strong>Piagam Jakarta (22 Juni 1945)</strong><br>
+                        Hasil kesepakatan panitia sembilan yang memuat rumusan awal Pancasila dengan tujuh kata pada sila pertama.</li>
+                        
+                        <li><strong>Penetapan Pancasila (18 Agustus 1945)</strong><br>
+                        PPKI mengesahkan UUD 1945 dengan Pancasila sebagai dasar negara. Sila pertama diubah menjadi "Ketuhanan Yang Maha Esa" demi persatuan bangsa.</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>📅 Timeline Penting:</strong>
+                        <ul>
+                            <li>29 April 1945: Pembentukan BPUPKI</li>
+                            <li>1 Juni 1945: Pidato Soekarno tentang Pancasila (Hari Lahir Pancasila)</li>
+                            <li>22 Juni 1945: Piagam Jakarta</li>
+                            <li>18 Agustus 1945: Pengesahan Pancasila sebagai dasar negara</li>
+                        </ul>
+                    </div>
+
+                    <h3>📚 Tugas</h3>
+                    <p>Buat timeline visual tentang proses perumusan Pancasila dari masa BPUPKI hingga penetapan resmi.</p>
+                `
+            },
+            3: {
+                title: "Pertemuan 3: Pancasila sebagai Sistem Filsafat",
+                content: `
+                    <h3>🎯 Tujuan Pembelajaran</h3>
+                    <p>Mahasiswa mampu menganalisis Pancasila sebagai sistem filsafat yang mencakup ontologi, epistemologi, dan aksiologi.</p>
+                    
+                    <h3>📝 Materi Pokok</h3>
+                    <ul>
+                        <li><strong>Pancasila sebagai Filsafat</strong><br>
+                        Pancasila adalah sistem filsafat yang menjadi pandangan hidup, kesadaran, dan cita-cita moral bangsa Indonesia.</li>
+                        
+                        <li><strong>Aspek Ontologi Pancasila</strong><br>
+                        Membahas hakikat keberadaan bangsa Indonesia yang bersumber dari nilai-nilai yang tumbuh dan berkembang dalam masyarakat Indonesia.</li>
+                        
+                        <li><strong>Aspek Epistemologi Pancasila</strong><br>
+                        Pancasila sebagai sumber pengetahuan tentang hakikat manusia Indonesia, alam semesta, dan Tuhan.</li>
+                        
+                        <li><strong>Aspek Aksiologi Pancasila</strong><br>
+                        Nilai-nilai Pancasila sebagai pedoman dalam menentukan baik-buruk, benar-salah dalam kehidupan bermasyarakat, berbangsa, dan bernegara.</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>🔍 Karakteristik Filsafat Pancasila:</strong>
+                        <ul>
+                            <li>Bersifat religius (mengakui adanya Tuhan)</li>
+                            <li>Humanistik (menempatkan manusia pada posisi terhormat)</li>
+                            <li>Nasionalistik (mengutamakan persatuan)</li>
+                            <li>Demokratis (menghargai musyawarah)</li>
+                            <li>Berkeadilan (mewujudkan keadilan sosial)</li>
+                        </ul>
+                    </div>
+
+                    <h3>📚 Tugas</h3>
+                    <p>Analisis salah satu kasus aktual di Indonesia menggunakan perspektif filsafat Pancasila.</p>
+                `
+            },
+            4: {
+                title: "Pertemuan 4: Pancasila sebagai Ideologi Negara",
+                content: `
+                    <h3>🎯 Tujuan Pembelajaran</h3>
+                    <p>Mahasiswa mampu menjelaskan kedudukan dan fungsi Pancasila sebagai ideologi negara yang bersifat terbuka.</p>
+                    
+                    <h3>📝 Materi Pokok</h3>
+                    <ul>
+                        <li><strong>Pengertian Ideologi</strong><br>
+                        Ideologi adalah sistem nilai, pemikiran, dan keyakinan yang menjadi pedoman dan cita-cita hidup suatu bangsa.</li>
+                        
+                        <li><strong>Pancasila sebagai Ideologi Terbuka</strong><br>
+                        Pancasila bersifat terbuka karena mampu menyesuaikan dengan perkembangan zaman tanpa mengubah nilai-nilai dasarnya. Ideologi terbuka memiliki ciri: tidak totaliter, tidak otoriter, tidak memaksa, dan memberikan kebebasan.</li>
+                        
+                        <li><strong>Dimensi Ideologi Pancasila</strong><br>
+                        - Dimensi Idealitas: nilai-nilai dasar yang bersifat universal<br>
+                        - Dimensi Normatif: penjabaran dalam kehidupan berbangsa<br>
+                        - Dimensi Realitas: implementasi dalam kehidupan nyata</li>
+                        
+                        <li><strong>Fungsi Pancasila sebagai Ideologi</strong><br>
+                        - Sebagai cita-cita dan tujuan bangsa<br>
+                        - Sebagai pemersatu bangsa<br>
+                        - Sebagai pedoman dalam kehidupan berbangsa dan bernegara<br>
+                        - Sebagai filter budaya asing</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>⚖️ Perbandingan Ideologi:</strong>
+                        <p>Pancasila berbeda dengan ideologi tertutup seperti liberalisme, komunisme, atau fasisme karena Pancasila menghargai pluralitas dan tidak memaksakan kehendak.</p>
+                    </div>
+
+                    <h3>📚 Tugas</h3>
+                    <p>Bandingkan Pancasila dengan salah satu ideologi dunia (liberalisme/komunisme) dalam bentuk tabel perbandingan.</p>
+                `
+            },
+            5: {
+                title: "Pertemuan 5: Nilai-nilai Pancasila Sila Pertama",
+                content: `
+                    <h3>🎯 Tujuan Pembelajaran</h3>
+                    <p>Mahasiswa mampu memahami dan mengimplementasikan nilai-nilai sila pertama Pancasila dalam kehidupan beragama.</p>
+                    
+                    <h3>📝 Materi Pokok</h3>
+                    <ul>
+                        <li><strong>Ketuhanan Yang Maha Esa</strong><br>
+                        Sila pertama menjadi landasan spiritual dan moral bagi keempat sila lainnya. Mengakui adanya Tuhan sebagai pencipta alam semesta dan sumber nilai kebenaran.</li>
+                        
+                        <li><strong>Nilai-nilai yang Terkandung</strong><br>
+                        - Percaya dan takwa kepada Tuhan Yang Maha Esa<br>
+                        - Hormat menghormati antarumat beragama<br>
+                        - Toleransi dalam kehidupan beragama<br>
+                        - Tidak memaksakan agama kepada orang lain<br>
+                        - Menjalankan ibadah sesuai agama dan kepercayaan masing-masing</li>
+                        
+                        <li><strong>Implementasi dalam Kehidupan</strong><br>
+                        - Menjalankan ibadah dengan taat<br>
+                        - Menghormati tempat ibadah agama lain<br>
+                        - Tidak diskriminatif terhadap pemeluk agama lain<br>
+                        - Menjaga kerukunan antarumat beragama<br>
+                        - Mengembangkan sikap religious tolerance</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>🕌 Keberagaman Agama di Indonesia:</strong>
+                        <p>Indonesia mengakui 6 agama resmi: Islam, Kristen, Katolik, Hindu, Buddha, dan Konghucu. Keberagaman ini menjadi kekayaan bangsa yang harus dijaga dengan toleransi dan saling menghormati.</p>
+                    </div>
+
+                    <h3>📚 Tugas</h3>
+                    <p>Berikan contoh konkret implementasi sila pertama Pancasila dalam kehidupan sehari-hari di lingkungan kampus.</p>
+                `
+            },
+            6: {
+                title: "Pertemuan 6: Nilai-nilai Pancasila Sila Kedua",
+                content: `
+                    <h3>🎯 Tujuan Pembelajaran</h3>
+                    <p>Mahasiswa mampu memahami dan mengamalkan nilai-nilai kemanusiaan yang adil dan beradab.</p>
+                    
+                    <h3>📝 Materi Pokok</h3>
+                    <ul>
+                        <li><strong>Kemanusiaan yang Adil dan Beradab</strong><br>
+                        Mengakui persamaan derajat, hak, dan kewajiban setiap manusia tanpa membeda-bedakan suku, agama, ras, dan golongan.</li>
+                        
+                        <li><strong>Nilai-nilai yang Terkandung</strong><br>
+                        - Mengakui dan memperlakukan manusia sesuai harkat dan martabatnya<br>
+                        - Mengakui persamaan derajat, hak, dan kewajiban asasi<br>
+                        - Mengembangkan sikap saling mencintai<br>
+                        - Mengembangkan sikap tenggang rasa dan tepo seliro<br>
+                        - Tidak semena-mena terhadap orang lain</li>
+                        
+                        <li><strong>Hak Asasi Manusia (HAM)</strong><br>
+                        - Hak untuk hidup dan mempertahankan kehidupan<br>
+                        - Hak untuk beragama dan beribadah<br>
+                        - Hak untuk mendapat perlindungan hukum<br>
+                        - Hak untuk mendapat pendidikan<br>
+                        - Hak untuk berkomunikasi dan memperoleh informasi</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>⚖️ Prinsip Keadilan:</strong>
+                        <p>Keadilan dalam sila kedua mencakup keadilan distributif (pembagian yang merata), keadilan legal (kepatuhan hukum), dan keadilan komutatif (pertukaran yang setara).</p>
+                    </div>
+
+                    <h3>📚 Tugas</h3>
+                    <p>Identifikasi 5 kasus pelanggaran HAM di Indonesia dan berikan solusi berdasarkan nilai-nilai sila kedua Pancasila.</p>
+                `
+            },
+            7: {
+                title: "Pertemuan 7: Nilai-nilai Pancasila Sila Ketiga",
+                content: `
+                    <h3>🎯 Tujuan Pembelajaran</h3>
+                    <p>Mahasiswa mampu memahami konsep persatuan Indonesia dan mengimplementasikan nilai-nilai nasionalisme.</p>
+                    
+                    <h3>📝 Materi Pokok</h3>
+                    <ul>
+                        <li><strong>Persatuan Indonesia</strong><br>
+                        Sila ketiga menekankan pentingnya persatuan dan kesatuan bangsa di tengah keberagaman suku, agama, ras, dan budaya.</li>
+                        
+                        <li><strong>Nilai-nilai yang Terkandung</strong><br>
+                        - Menempatkan persatuan, kesatuan, kepentingan bangsa di atas kepentingan pribadi/golongan<br>
+                        - Sanggup berkorban untuk kepentingan negara<br>
+                        - Mengembangkan rasa cinta tanah air<br>
+                        - Mengembangkan persatuan Indonesia atas dasar Bhinneka Tunggal Ika<br>
+                        - Memajukan pergaulan demi persatuan dan kesatuan bangsa</li>
+                        
+                        <li><strong>Wawasan Nusantara</strong><br>
+                        Cara pandang bangsa Indonesia tentang diri dan lingkungannya berdasarkan Pancasila dan UUD 1945 yang merupakan aspirasi bangsa yang merdeka, berdaulat, bermartabat.</li>
+                        
+                        <li><strong>Tantangan Persatuan</strong><br>
+                        - Konflik SARA<br>
+                        - Separatisme<br>
+                        - Radikalisme<br>
+                        - Primordialisme berlebihan<br>
+                        - Hoaks dan disinformasi</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>🇮🇩 Bhinneka Tunggal Ika:</strong>
+                        <p>"Berbeda-beda tetapi tetap satu" - semboyan ini mengajarkan bahwa keberagaman bukan penghalang, melainkan kekuatan untuk membangun persatuan bangsa.</p>
+                    </div>
+
+                    <h3>📚 Tugas</h3>
+                    <p>Buat video singkat (3-5 menit) tentang implementasi nilai-nilai sila ketiga dalam menjaga persatuan di era digital.</p>
+                `
+            },
+            8: {
+                title: "Pertemuan 8: Ujian Tengah Semester",
+                content: `
+                    <h3>📋 Informasi UTS</h3>
+                    <p>Ujian Tengah Semester akan mengevaluasi pemahaman mahasiswa terhadap materi pertemuan 1-7.</p>
+                    
+                    <h3>📚 Cakupan Materi</h3>
+                    <ul>
+                        <li>Pengantar Pendidikan Pancasila</li>
+                        <li>Sejarah Lahirnya Pancasila</li>
+                        <li>Pancasila sebagai Sistem Filsafat</li>
+                        <li>Pancasila sebagai Ideologi Negara</li>
+                        <li>Nilai-nilai Sila Pertama: Ketuhanan Yang Maha Esa</li>
+                        <li>Nilai-nilai Sila Kedua: Kemanusiaan yang Adil dan Beradab</li>
+                        <li>Nilai-nilai Sila Ketiga: Persatuan Indonesia</li>
+                    </ul>
+
+                    <h3>📝 Format Ujian</h3>
+                    <ul>
+                        <li><strong>Bagian A:</strong> Pilihan Ganda (30 soal)</li>
+                        <li><strong>Bagian B:</strong> Essay (5 soal)</li>
+                        <li><strong>Waktu:</strong> 120 menit</li>
+                        <li><strong>Sifat:</strong> Closed Book</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>💡 Tips Persiapan:</strong>
+                        <ul>
+                            <li>Pahami konsep dasar setiap materi</li>
+                            <li>Hafalkan tokoh-tokoh penting dalam sejarah Pancasila</li>
+                            <li>Latih kemampuan analisis kasus</li>
+                            <li>Review tugas-tugas yang telah dikerjakan</li>
+                            <li>Diskusi kelompok untuk saling melengkapi pemahaman</li>
+                        </ul>
+                    </div>
+
+                    <h3>⚠️ Peraturan Ujian</h3>
+                    <ul>
+                        <li>Datang 15 menit sebelum ujian dimulai</li>
+                        <li>Membawa kartu identitas mahasiswa</li>
+                        <li>Tidak diperkenankan menggunakan HP atau alat elektronik</li>
+                        <li>Mematuhi tata tertib ujian</li>
+                    </ul>
+                `
+            },
+            9: {
+                title: "Pertemuan 9: Nilai-nilai Pancasila Sila Keempat",
+                content: `
+                    <h3>🎯 Tujuan Pembelajaran</h3>
+                    <p>Mahasiswa mampu memahami dan mengimplementasikan nilai-nilai demokrasi Pancasila dalam kehidupan bermasyarakat.</p>
+                    
+                    <h3>📝 Materi Pokok</h3>
+                    <ul>
+                        <li><strong>Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan</strong><br>
+                        Sila keempat mengajarkan sistem demokrasi yang berlandaskan musyawarah untuk mencapai mufakat dengan dipandu kebijaksanaan.</li>
+                        
+                        <li><strong>Nilai-nilai yang Terkandung</strong><br>
+                        - Mengutamakan musyawarah dalam mengambil keputusan<br>
+                        - Musyawarah untuk mencapai mufakat diliputi semangat kekeluargaan<br>
+                        - Menghormati dan menjunjung tinggi keputusan musyawarah<br>
+                        - Keputusan dapat dipertanggungjawabkan secara moral<br>
+                        - Mengutamakan kepentingan bersama di atas kepentingan pribadi</li>
+                        
+                        <li><strong>Demokrasi Pancasila</strong><br>
+                        Demokrasi yang berdasarkan pada nilai-nilai Pancasila yang mengutamakan musyawarah mufakat, menghormati hak asasi, dan menjunjung tinggi keadilan.</li>
+                        
+                        <li><strong>Prinsip Demokrasi Pancasila</strong><br>
+                        - Persamaan bagi seluruh rakyat Indonesia<br>
+                        - Keseimbangan hak dan kewajiban<br>
+                        - Kebebasan yang bertanggung jawab<br>
+                        - Mewujudkan rasa keadilan sosial<br>
+                        - Pengambilan keputusan dengan musyawarah mufakat</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>🗳️ Implementasi dalam Sistem Politik:</strong>
+                        <p>Demokrasi Pancasila diwujudkan melalui sistem perwakilan (DPR, DPD, DPRD) yang melibatkan rakyat dalam pengambilan keputusan melalui pemilihan umum yang demokratis.</p>
+                    </div>
+
+                    <h3>📚 Tugas</h3>
+                    <p>Analisis implementasi demokrasi Pancasila dalam pemilihan ketua organisasi mahasiswa di kampus Anda.</p>
+                `
+            },
+            10: {
+                title: "Pertemuan 10: Nilai-nilai Pancasila Sila Kelima",
+                content: `
+                    <h3>🎯 Tujuan Pembelajaran</h3>
+                    <p>Mahasiswa mampu memahami dan mengimplementasikan nilai-nilai keadilan sosial dalam kehidupan bermasyarakat.</p>
+                    
+                    <h3>📝 Materi Pokok</h3>
+                    <ul>
+                        <li><strong>Keadilan Sosial bagi Seluruh Rakyat Indonesia</strong><br>
+                        Sila kelima mengajarkan pentingnya kesejahteraan yang merata bagi seluruh rakyat Indonesia tanpa diskriminasi.</li>
+                        
+                        <li><strong>Nilai-nilai yang Terkandung</strong><br>
+                        - Mengembangkan perbuatan luhur yang mencerminkan sikap dan suasana kekeluargaan<br>
+                        - Mengembangkan sikap adil terhadap sesama<br>
+                        - Menjaga keseimbangan hak dan kewajiban<br>
+                        - Menghormati hak orang lain<br>
+                        - Suka memberi pertolongan kepada orang yang memerlukan<br>
+                        - Menjauhi sikap pemerasan terhadap orang lain</li>
+                        
+                        <li><strong>Konsep Keadilan Sosial</strong><br>
+                        - Keadilan distributif: pembagian kesejahteraan yang merata<br>
+                        - Keadilan legal: kepatuhan terhadap hukum<br>
+                        - Keadilan komutatif: keseimbangan dalam hubungan antarindividu<br>
+                        - Keadilan vindiktif: pemberian hukuman yang adil</li>
+                        
+                        <li><strong>Implementasi Keadilan Sosial</strong><br>
+                        - Pemerataan pembangunan<br>
+                        - Akses pendidikan dan kesehatan untuk semua<br>
+                        - Perlindungan terhadap kelompok rentan<br>
+                        - Pengentasan kemiskinan<br>
+                        - Pemberdayaan ekonomi rakyat</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>💼 Keadilan Ekonomi:</strong>
+                        <p>Pasal 33 UUD 1945 mengamanatkan sistem ekonomi yang demokratis dengan prinsip kebersamaan, efisiensi berkeadilan, berkelanjutan, berwawasan lingkungan, kemandirian, serta menjaga keseimbangan kemajuan dan kesatuan ekonomi nasional.</p>
+                    </div>
+
+                    <h3>📚 Tugas</h3>
+                    <p>Identifikasi program pemerintah yang mencerminkan implementasi sila kelima dan evaluasi efektivitasnya.</p>
+                `
+            },
+            11: {
+                title: "Pertemuan 11: Pancasila dalam Konteks NKRI",
+                content: `
+                    <h3>🎯 Tujuan Pembelajaran</h3>
+                    <p>Mahasiswa mampu memahami implementasi Pancasila dalam sistem pemerintahan Negara Kesatuan Republik Indonesia.</p>
+                    
+                    <h3>📝 Materi Pokok</h3>
+                    <ul>
+                        <li><strong>Pancasila sebagai Dasar Negara</strong><br>
+                        Pancasila menjadi fondasi dalam penyelenggaraan negara dan sumber dari segala sumber hukum di Indonesia.</li>
+                        
+                        <li><strong>Implementasi dalam Sistem Pemerintahan</strong><br>
+                        - Sistem presidensial yang demokratis<br>
+                        - Pemisahan kekuasaan (eksekutif, legislatif, yudikatif)<br>
+                        - Checks and balances antar lembaga negara<br>
+                        - Otonomi daerah dengan prinsip desentralisasi<br>
+                        - Partisipasi masyarakat dalam pemerintahan</li>
+                        
+                        <li><strong>Lembaga Negara</strong><br>
+                        - MPR (Majelis Permusyawaratan Rakyat)<br>
+                        - DPR (Dewan Perwakilan Rakyat)<br>
+                        - DPD (Dewan Perwakilan Daerah)<br>
+                        - Presiden dan Wakil Presiden<br>
+                        - Mahkamah Agung<br>
+                        - Mahkamah Konstitusi<br>
+                        - BPK (Badan Pemeriksa Keuangan)<br>
+                        - KY (Komisi Yudisial)</li>
+                        
+                        <li><strong>Pancasila dalam Kebijakan Publik</strong><br>
+                        Setiap kebijakan pemerintah harus berlandaskan nilai-nilai Pancasila dan tidak bertentangan dengan UUD 1945.</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>🏛️ Prinsip NKRI:</strong>
+                        <ul>
+                            <li>Kedaulatan di tangan rakyat</li>
+                            <li>Negara berdasarkan atas hukum</li>
+                            <li>Bentuk pemerintahan republik</li>
+                            <li>Presiden sebagai kepala negara dan kepala pemerintahan</li>
+                            <li>Otonomi daerah yang luas</li>
+                        </ul>
+                    </div>
+
+                    <h3>📚 Tugas</h3>
+                    <p>Buat diagram struktur lembaga negara Indonesia dan jelaskan peran masing-masing dalam implementasi Pancasila.</p>
+                `
+            },
+            12: {
+                title: "Pertemuan 12: Pancasila dan Konstitusi",
+                content: `
+                    <h3>🎯 Tujuan Pembelajaran</h3>
+                    <p>Mahasiswa mampu memahami hubungan Pancasila dengan konstitusi dan hierarki peraturan perundang-undangan di Indonesia.</p>
+                    
+                    <h3>📝 Materi Pokok</h3>
+                    <ul>
+                        <li><strong>Hubungan Pancasila dengan UUD 1945</strong><br>
+                        Pancasila adalah sumber dari segala sumber hukum negara, sedangkan UUD 1945 adalah penjabaran Pancasila dalam bentuk hukum dasar tertulis.</li>
+                        
+                        <li><strong>Hierarki Peraturan Perundang-undangan</strong><br>
+                        Berdasarkan UU No. 12 Tahun 2011:<br>
+                        1. UUD 1945<br>
+                        2. Ketetapan MPR<br>
+                        3. Undang-Undang/Perpu<br>
+                        4. Peraturan Pemerintah<br>
+                        5. Peraturan Presiden<br>
+                        6. Peraturan Daerah Provinsi<br>
+                        7. Peraturan Daerah Kabupaten/Kota</li>
+                        
+                        <li><strong>Amandemen UUD 1945</strong><br>
+                        UUD 1945 telah mengalami 4 kali amandemen (1999-2002) untuk menyempurnakan sistem ketatanegaraan tanpa mengubah Pembukaan yang memuat Pancasila.</li>
+                        
+                        <li><strong>Judicial Review</strong><br>
+                        Mahkamah Konstitusi berwenang menguji undang-undang terhadap UUD 1945 untuk memastikan tidak bertentangan dengan Pancasila dan konstitusi.</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>⚖️ Pembukaan UUD 1945:</strong>
+                        <p>Pembukaan UUD 1945 bersifat tetap dan tidak dapat diubah karena memuat Pancasila sebagai dasar negara dan filosofi bangsa Indonesia.</p>
+                    </div>
+
+                    <h3>📚 Tugas</h3>
+                    <p>Analisis salah satu putusan Mahkamah Konstitusi yang berkaitan dengan pengujian undang-undang terhadap Pancasila.</p>
+                `
+            },
+            13: {
+                title: "Pertemuan 13: Hak dan Kewajiban Warga Negara",
+                content: `
+                    <h3>🎯 Tujuan Pembelajaran</h3>
+                    <p>Mahasiswa mampu memahami hak dan kewajiban warga negara Indonesia serta implementasinya dalam kehidupan berbangsa dan bernegara.</p>
+                    
+                    <h3>📝 Materi Pokok</h3>
+                    <ul>
+                        <li><strong>Hak Warga Negara</strong><br>
+                        Hak-hak yang dijamin dalam UUD 1945:<br>
+                        - Hak atas pekerjaan dan penghidupan yang layak<br>
+                        - Hak untuk mendapat pendidikan<br>
+                        - Hak untuk beragama dan beribadah<br>
+                        - Hak untuk berserikat dan berkumpul<br>
+                        - Hak untuk mengeluarkan pendapat<br>
+                        - Hak atas jaminan sosial<br>
+                        - Hak mendapat perlindungan hukum</li>
+                        
+                        <li><strong>Kewajiban Warga Negara</strong><br>
+                        - Menaati hukum dan pemerintahan<br>
+                        - Ikut serta dalam upaya pembelaan negara<br>
+                        - Menghormati hak asasi manusia orang lain<br>
+                        - Tunduk kepada pembatasan yang ditetapkan undang-undang<br>
+                        - Ikut serta dalam usaha pertahanan dan keamanan negara<br>
+                        - Membayar pajak dan retribusi</li>
+                        
+                        <li><strong>Keseimbangan Hak dan Kewajiban</strong><br>
+                        Warga negara harus memahami bahwa hak dan kewajiban harus seimbang. Tidak boleh hanya menuntut hak tanpa melaksanakan kewajiban.</li>
+                        
+                        <li><strong>Partisipasi Warga Negara</strong><br>
+                        - Menggunakan hak pilih dalam pemilu<br>
+                        - Mengawasi jalannya pemerintahan<br>
+                        - Memberikan masukan untuk kebijakan publik<br>
+                        - Ikut serta dalam pembangunan nasional<br>
+                        - Menjaga lingkungan hidup</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>🎯 Warga Negara yang Baik:</strong>
+                        <p>Warga negara yang baik adalah yang memahami hak dan kewajibannya, aktif berpartisipasi dalam kehidupan berbangsa, dan mengamalkan nilai-nilai Pancasila dalam kehidupan sehari-hari.</p>
+                    </div>
+
+                    <h3>📚 Tugas</h3>
+                    <p>Buat infografis tentang hak dan kewajiban mahasiswa sebagai warga negara Indonesia.</p>
+                `
+            },
+            14: {
+                title: "Pertemuan 14: Pancasila di Era Digital",
+                content: `
+                    <h3>🎯 Tujuan Pembelajaran</h3>
+                    <p>Mahasiswa mampu menganalisis tantangan dan strategi implementasi Pancasila di era digital dan globalisasi.</p>
+                    
+                    <h3>📝 Materi Pokok</h3>
+                    <ul>
+                        <li><strong>Tantangan Era Digital</strong><br>
+                        - Hoaks dan disinformasi yang mengancam persatuan<br>
+                        - Ujaran kebencian dan intoleransi di media sosial<br>
+                        - Radikalisme dan ekstremisme online<br>
+                        - Budaya instant dan konsumerisme<br>
+                        - Memudarnya nilai-nilai gotong royong<br>
+                        - Cyber crime dan pelanggaran privasi</li>
+                        
+                        <li><strong>Strategi Implementasi Pancasila</strong><br>
+                        - Literasi digital berdasarkan nilai Pancasila<br>
+                        - Bijak bermedia sosial dengan etika Pancasila<br>
+                        - Memfilter informasi dengan kritis<br>
+                        - Mempromosikan konten positif dan edukatif<br>
+                        - Menjaga persatuan dalam keberagaman online<br>
+                        - Menghormati hak dan privasi orang lain di dunia maya</li>
+                        
+                        <li><strong>Pancasila sebagai Filter Budaya</strong><br>
+                        Pancasila menjadi filter dalam menyaring pengaruh budaya asing agar tidak bertentangan dengan kepribadian bangsa Indonesia.</li>
+                        
+                        <li><strong>Generasi Milenial dan Pancasila</strong><br>
+                        Generasi muda memiliki peran penting dalam merevitalisasi dan mengaktualisasikan nilai-nilai Pancasila di era digital.</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>💻 Peran Teknologi Positif:</strong>
+                        <ul>
+                            <li>Platform edukasi online untuk menyebarkan nilai Pancasila</li>
+                            <li>Media sosial untuk kampanye toleransi dan persatuan</li>
+                            <li>Aplikasi yang mendukung gotong royong digital</li>
+                            <li>E-government untuk transparansi dan akuntabilitas</li>
+                        </ul>
+                    </div>
+
+                    <h3>📚 Tugas</h3>
+                    <p>Buat kampanye digital (poster/video) tentang implementasi salah satu nilai Pancasila di media sosial.</p>
+                `
+            }
+        };
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            if (sectionId !== 'materi') {
+                document.getElementById('meetingDetail').style.display = 'none';
+            }
+        }
+
+        function showMeeting(meetingNumber) {
+            const meeting = meetingContents[meetingNumber];
+            const detailDiv = document.getElementById('meetingDetail');
+            
+            detailDiv.innerHTML = `
+                <div class="course-card">
+                    <h2>${meeting.title}</h2>
+                    ${meeting.content}
+                    <button class="nav-btn" onclick="closeMeetingDetail()" style="margin-top: 2rem;">
+                        ← Kembali ke Daftar Materi
+                    </button>
+                </div>
+            `;
+            
+            detailDiv.style.display = 'block';
+            detailDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function closeMeetingDetail() {
+            document.getElementById('meetingDetail').style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        async function onConfigChange(config) {
+            const courseTitle = config.course_title || defaultConfig.course_title;
+            const courseSubtitle = config.course_subtitle || defaultConfig.course_subtitle;
+            const institutionName = config.institution_name || defaultConfig.institution_name;
+            const lecturerName = config.lecturer_name || defaultConfig.lecturer_name;
+
+            document.getElementById('courseTitle').textContent = courseTitle;
+            document.getElementById('courseSubtitle').textContent = courseSubtitle;
+            document.getElementById('institutionName').textContent = institutionName;
+            document.getElementById('lecturerName').textContent = lecturerName;
+            document.getElementById('footerInstitution').textContent = institutionName;
+        }
+
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig: defaultConfig,
+                onConfigChange: onConfigChange,
+                mapToCapabilities: (config) => ({
+                    recolorables: [],
+                    borderables: [],
+                    fontEditable: undefined,
+                    fontSizeable: undefined
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ["course_title", config.course_title || defaultConfig.course_title],
+                    ["course_subtitle", config.course_subtitle || defaultConfig.course_subtitle],
+                    ["institution_name", config.institution_name || defaultConfig.institution_name],
+                    ["lecturer_name", config.lecturer_name || defaultConfig.lecturer_name]
+                ])
+            });
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b82f652257d70ac',t:'MTc2NzQ0ODE5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
